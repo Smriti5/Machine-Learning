@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+import matplotlib.pyplot as plt
+
+u=["Virat","Dhoni","Pandya"]
+v=[85,50,45]
+plt.xlabel("Players")
+plt.ylabel("Runs")
+plt.grid() #To form grid in the graph
+plt.plot(u,v) #To plot the data
+plt.bar(u,v)
+plt.show() #To show the data

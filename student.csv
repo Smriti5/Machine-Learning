@@ -1,6 +1,4 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 df=pd.read_csv('student.csv')
-a= pd.DataFrame({'marks': [45,42,38,44,30]},
-                   index=['ajay','anjali','ankit','dhruv','harish'])
-plot = a.plot.pie(y='marks', figsize=(5, 5))
+plt.pie(df['marks'],labels={'ajay','anjali','ankit','dhruv','harish'})

@@ -1,0 +1,8 @@
+import numpy as np
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+features=[[100,0],[120,0],[130,1],[150,1]]    # Here 0 is smooth and 1 is bumpy
+label=["apple","apple","orange","orange"]
+clf=DecisionTreeClassifier()
+trained=clf.fit(features,label)   
+trained.predict([[110,1]])

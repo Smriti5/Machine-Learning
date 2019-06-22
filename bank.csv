@@ -6,4 +6,5 @@ b=df.info()
 df.plot()  
 df.plot(kind='bar')
 df.hist()
+plt.pie(df.Balance,labels=df.Surname)
 df

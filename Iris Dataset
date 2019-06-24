@@ -1,0 +1,33 @@
+from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split  #divides data
+from sklearn.metrics import accuracy_score  # tells how much accurate it is
+#now loading IRIS data only
+iris=load_iris()
+dir(iris) #exploring variable
+#iris.DESCR
+#these are feature name
+iris.feature_names
+#lables or answer
+iris.target_names
+#actual data with attributes is 
+features=iris.data
+features
+label=iris.target
+label.shape
+#now time for seperating data into two category
+#1--->training data
+#2--->testing data--questions
+train_data,test_data,label_train,label_test=train_test_split(features,label,test_size=0.1,random_state=0) 
+#test _size=the data given as input and 0.1 is 10%, assigning random_state means your split will always be same
+# calling decisionTree classifier
+clf=DecisionTreeClassifier()
+# now time for training classifier
+trained=clf.fit(train_data,label_train)
+#now predicting flowers
+predicted_flowers=trained.predict(test_data)
+predicted_flowers  #algo answer
+label_test  #actual answer
+#find accuracy score
+accuracy_score(label_test,predicted_flowers)

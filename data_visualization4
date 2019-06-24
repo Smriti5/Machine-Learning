@@ -1,0 +1,35 @@
+import numpy as np
+from bs4 import BeautifulSoup
+import pandas as pd
+import requests
+from requests import get
+from collections import Counter
+import matplotlib.pyplot as plt
+import seaborn as sb
+driver=requests.get("https://en.wikipedia.org/wiki/Machine_learning")
+print(driver)
+wc=0
+soup=BeautifulSoup(driver.text)
+print(len(soup.get_text().split()))
+a={}
+b={}
+c={}
+words=soup.get_text().split()
+for i in words:
+    if i in a:
+      a[i] += 1
+      if len(b) < 21 :
+        b[i] = a[i]
+        for j in b:
+          if b[j] > 3:
+            c[j] = b[j]
+    else:
+      a[i] = 1
+print(b)
+print(c)
+for key in c:
+  plt.scatter([key]*1,c[key],label=key)
+lists=sorted(b.items())
+x,y=zip(*lists)
+plt.bar(range(len(b)),list(b.values()),align='center')
+df=pd.DataFrame.from_dict(b,orient='index')

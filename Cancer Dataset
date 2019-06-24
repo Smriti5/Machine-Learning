@@ -1,0 +1,20 @@
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+cancer=load_breast_cancer()
+dir(cancer)
+#storing the data into features
+features=cancer.data
+#storing the target into label
+label=cancer.target
+#now to train the data
+#test_size=0.2 means 20% of the data will be given as input and 80% data will be trained
+train_data,test_data,train_label,test_label=train_test_split(features,label,test_size=0.2,random_state=0) 
+clf=DecisionTreeClassifier()
+trained=clf.fit(train_data,train_label)
+predicted_cancer=trained.predict(test_data)
+predicted_cancer
+test_label
+#to check the accuracy
+accuracy_score(test_label,predicted_cancer)

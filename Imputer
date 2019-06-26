@@ -1,0 +1,17 @@
+import pandas as pd
+from sklearn.preprocessing import Imputer
+#reading csv file from url
+df=pd.read_csv('http://13.234.66.67/summer19/datasets/info.csv')
+df.info()
+#it shows only values without header
+x=df.iloc[:,0:].values
+#removing or replacing missing value with some relevant data
+#missing_values='NaN' means we have to find values having 'NaN'
+#axis=0 means to check columnwise
+#strategy='mean' means replacing 'NaN' value with the mean of column
+imp=Imputer(missing_values='NaN',axis=0,strategy='mean')
+#fitting of columns we want to process
+impute=imp.fit(x[:,1:3])
+#transforming fitted values
+x[:,1:3]=impute.transform(x[:,1:3])
+x

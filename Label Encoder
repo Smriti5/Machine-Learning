@@ -1,0 +1,8 @@
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+df=pd.read_csf('http://13.234.66.67/summer19/datasets/train.csv')
+x=df.iloc(x[:,0:]).values
+cont=LabelEncoder()  # this is country labeling
+#now apply column first in the LabelEncoder
+x[:,0]=cont.fit_transform(x[:,0])
+x

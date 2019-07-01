@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+import numpy as np
+import cv2
+img=cv2.imread('download.jpg',1)[0:150,0:150]
+gray=cv2.imread('panda.jpg',1)[0:150,0:150]
+numpy_concat=np.concatenate((img,gray),axis=1)
+cv2.imshow('Numpy concating',numpy_concat)
+cv2.waitKey(0)

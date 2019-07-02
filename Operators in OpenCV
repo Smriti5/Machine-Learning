@@ -1,0 +1,11 @@
+import cv2
+scene=cv2.imread('download.jpg',1)[0:150,0:150]
+panda=cv2.imread('panda.jpg',1)[0:150,0:150]
+#to add two images and make a single image
+img=cv2.add(scene,panda)
+#to see difference between two images
+img1=cv2.subtract(scene,panda)
+cv2.imshow('added',img)
+cv2.imshow('sub',img1)
+cv2.waitKey(0)
+© 2019 GitHub, Inc.

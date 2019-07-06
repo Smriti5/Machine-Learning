@@ -1,0 +1,13 @@
+import tensorflow as tf
+# to assign fix value in tensorflow we need to define constant
+x=tf.constant(30) #single value constant
+y=tf.constant(20)
+#equation
+z=x+y  #new tensor --- z equation compile and store and wait for resources
+#CPU , GPU , TPU ---
+#now time for assigning resources to our equation
+sess=tf.Session() #connect CPU , GPU , TPU
+output=sess.run(z)
+output
+#closing session
+sess.close()
